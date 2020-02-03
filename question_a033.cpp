@@ -18,12 +18,12 @@ int main(int argc, char *argv[]) {
 	string buff = "________";
 	cin >> input1;
 	//input2 = to_string(input1);//舊版本編譯器不支援。
-	
+
 	char intStr[20] = "";
 	//_itoa(input1, intStr, 10);//舊版本編譯器不支援。
 	sprintf(intStr, "%d", input1);
 	input2 = string(intStr);
-	
+
 	int inputLength = input2.length();
 	switch (inputLength) {
 		case 1:
