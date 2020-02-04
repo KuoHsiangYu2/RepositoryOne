@@ -7,7 +7,7 @@ Java jdk version：1.8.0_202
 滑鼠右鍵打開 open.bat，出現命令提示字元視窗。
 
 2.
-輸入 run1.bat 開始執行 SQL Server command指令。
+輸入 run1.bat 開始執行 SQL Server command指令。建立好 Database 跟 Table。
 
 3.
-再用 Eclipse IDE 打開專案後，啟動程式運行。
+接著再用 Eclipse IDE 打開專案後，啟動Tomcat server開始運行 Web Application。
