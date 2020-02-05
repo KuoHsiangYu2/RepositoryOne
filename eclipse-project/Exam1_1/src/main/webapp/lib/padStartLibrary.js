@@ -6,11 +6,11 @@
 // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/join
 
 if (!String.prototype.padStart) {
-	
+
 	// 為了支援IE瀏覽器而寫的函數。
 	console.log('開始為 IE瀏覽器 加載 padStart()');
 	String.prototype.padStart = function padStart(targetLength, padString) {
-		
+
 		/* truncate if number or convert non-number to 0; */
 		targetLength = targetLength >> 0;
 
@@ -37,4 +37,3 @@ if (!String.prototype.padStart) {
 		}
 	};
 }
-

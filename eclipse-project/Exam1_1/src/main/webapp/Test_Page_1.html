@@ -17,7 +17,9 @@
         <form method="post" action="Ch01">
             <table border="1">
                 <tr>
-                    <td>職務代理人挑選</td>
+                    <td>
+                        職務代理人挑選
+                    </td>
                     <td colspan="3">
                         <!--從資料庫送出來的資料作成下拉式選單，由AJAX技術撈資料。-->
                         <select id="cname" name="cname">
@@ -25,24 +27,33 @@
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2">代理時間</td>
+                    <td rowspan="2">
+                        代理時間
+                    </td>
                     <!--autocomplete="off"不要讓瀏覽器記住使用者輸入資料的歷史紀錄-->
-                    <td>開始日期：<input type="text" id="start_date" name="start_date" autocomplete="off" /></td>
-                    <td>時間：
+                    <td>
+                        開始日期：<input type="text" id="start_date" name="start_date" autocomplete="off" />
+                    </td>
+                    <td>
+                        時間：
                         <select id="start_time" name="start_time">
                         </select>
                     </td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>結束日期：<input type="text" id="end_date" name="end_date" autocomplete="off" /></td>
-                    <td>時間：
+                    <td>
+                        結束日期：<input type="text" id="end_date" name="end_date" autocomplete="off" />
+                    </td>
+                    <td>
+                        時間：
                         <select id="end_time" name="end_time">
                         </select>
                     </td>
-                    <td><input type="submit" value="確定送出" /></td>
+                    <td>
+                        <input type="submit" value="確定送出" />
+                    </td>
                 </tr>
-                <tr></tr>
             </table>
         </form>
         <br> <a href="index.html">回首頁</a>
