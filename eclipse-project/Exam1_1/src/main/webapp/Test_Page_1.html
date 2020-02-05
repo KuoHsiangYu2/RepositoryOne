@@ -90,8 +90,7 @@
                 buttonImage: "./lib/calendar.gif",
                 buttonImageOnly: true,
                 onClose: function (selectedDate) {
-                    $("#end_date").datepicker("option", "minDate",
-                        selectedDate);
+                    $("#end_date").datepicker("option", "minDate", selectedDate);
                 }
             });
 
@@ -110,22 +109,25 @@
         });
 
         // 動態產生下拉式選單的時間項目
-        let objStartTime = document.getElementById("start_time");
-        let objEndTime = document.getElementById("end_time");
-        let str = "";
-        let objOption = null;
+        // https://www.geeksforgeeks.org/how-to-add-options-to-a-select-element-using-jquery/
+        // https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+        //let objStartTime = document.getElementById("start_time");//A
+        //let objEndTime = document.getElementById("end_time");//A
         for (let hour = 0; hour <= 23; hour++) {
             for (let minute = 0; minute <= 30; minute += 30) {
-                str = "";
+                let str = "";
                 str = str + String(hour).padStart(2, '0') + "：" + String(minute).padStart(2, '0');
-                objOption = new Option(str, str);
-                objStartTime.add(objOption);
-                objEndTime.add(objOption);
+                let objOption = new Option(str, str);
+                // 把 objOption 改成 objOption.cloneNode(true)
+                //objStartTime.add(objOption.cloneNode(true));//A
+                //objEndTime.add(objOption.cloneNode(true));//A
+                $('#start_time').append(objOption.cloneNode(true));//B
+                $('#end_time').append(objOption.cloneNode(true));//B
             }
         }
 
         // 使用AJAX非同步更新2，把資料庫裡面職務代理人資料抓出來秀在網頁上。
-        let objCname = document.getElementById("cname");// 用 id 抓出指定的 Element object
+        //let objCname = document.getElementById("cname");// 用 id 抓出指定的 Element object//A
         let data = "";
         $.ajax({
             url: "GetNameData2",
@@ -136,12 +138,13 @@
                 showNames(data);
             }
         });
-
+        
         function showNames(data) {
             let names = data.split(",");
             for (let i = 0; i < names.length; i++) {
                 let objOption = new Option(names[i], names[i]);
-                objCname.add(objOption);
+                //objCname.add(objOption);//A
+                $('#cname').append(objOption);//B
             }
         }
     </script>
