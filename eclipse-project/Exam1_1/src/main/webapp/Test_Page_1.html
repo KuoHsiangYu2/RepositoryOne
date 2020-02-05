@@ -30,9 +30,12 @@
                     <td rowspan="2">
                         代理時間
                     </td>
-                    <!--autocomplete="off"不要讓瀏覽器記住使用者輸入資料的歷史紀錄-->
+                    <!-- autocomplete="off"不要讓瀏覽器記住使用者輸入資料的歷史紀錄 -->
+
+                    <!-- 在對象focus時立刻讓它blur，使它無法獲得焦點， -->
+                    <!-- 換言之使用者無法用鍵盤輸入，只能點選日曆。加上這層限制，避免使用者亂打字輸入錯誤資料。 -->
                     <td>
-                        開始日期：<input type="text" id="start_date" name="start_date" autocomplete="off" />
+                        開始日期：<input type="text" id="start_date" name="start_date" autocomplete="off" onfocus="this.blur()" />
                     </td>
                     <td>
                         時間：
@@ -43,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>
-                        結束日期：<input type="text" id="end_date" name="end_date" autocomplete="off" />
+                        結束日期：<input type="text" id="end_date" name="end_date" autocomplete="off" onfocus="this.blur()" />
                     </td>
                     <td>
                         時間：
@@ -63,7 +66,6 @@
         // dateFormat : 'yy-mm-dd'→設定 年-月-日
         // [jQuery] 如何為 DatePicker 加上中文化日期選項？
         // http://blog.e-happy.com.tw/jquery-how-to-add-cultural-datepicker-date-option/
-        // https://www.facebook.com/groups/1403852566495675/permalink/2542632692617651/
 
         let selectedDate = "";
 

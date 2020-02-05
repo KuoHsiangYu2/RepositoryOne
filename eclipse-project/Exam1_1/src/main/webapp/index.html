@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>index</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        // 預先發送 GET請求，去呼叫 GetNameData2 Servlet
+        $.ajax({
+            url: "GetNameData2",
+            type: "GET",
+            success: function (data) {
+            }
+        });
+    </script>
 </head>
 
 <body>
