@@ -1,0 +1,40 @@
+<!-- restrictEnterString.html -->
+<!-- 輸入 ! -->
+<!-- 輸入 html:5 -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>restrictEnterString</title>
+</head>
+
+<body>
+    <!--
+        https://www.facebook.com/groups/1403852566495675/permalink/2541029972777923/
+        https://www.w3school.com.cn/tags/att_input_pattern.asp
+        https://blog.csdn.net/shiyong1949/article/details/76677303
+        http://littlestrong26.pixnet.net/blog/post/134607674-html-input-type%3D%27number%27-%E8%88%87-onkeyup-%E6%AD%A3%E5%89%87%E8%A1%A8%E9%81%94%E5%BC%8F-%E7%9A%84%E4%BD%BF
+        https://km.nicetypo.com/doc/77423056e1cc37721e0d7c80e1accecf
+        https://www.w3school.com.cn/html5/att_input_required.asp
+    -->
+
+    <p>測試使用 input標籤 的正則表達式來限制使用者輸入的字串<br /></p>
+    <form action="Inquire1" method="get">
+        <label>国家代码：</label><input type="text" name="country1" pattern="[A-z]{3}" title="三个字母的国家代码"
+            required="required" />
+        <br /><br />
+        <label>信用卡號：</label><input type="text" name="country2"
+            pattern="[0-9]{4}[-]{1}[0-9]{4}[-]{1}[0-9]{4}[-]{1}[0-9]{4}" title="xxxx-xxxx-xxxx-xxxx [x為阿拉伯數字]"
+            placeholder="xxxx-xxxx-xxxx-xxxx" required="required" />
+        <!-- pattern 用來限制使用者輸入的字串之政則表達式 -->
+        <!-- placeholder 在使用者沒輸入時顯示提示。 -->
+        <!-- title 當使用者輸入不符合格式，彈出提示框 -->
+        <!-- required 強制要求使用者必須輸入字串 -->
+        <br /><br />
+        <input type="submit" value="送出查詢" />
+    </form>
+</body>
+
+</html>

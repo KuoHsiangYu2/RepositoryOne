@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Ch01
+ * Servlet implementation class Inquire1
  */
-@WebServlet("/Ch01")
-public class Ch01 extends HttpServlet {
+@WebServlet("/Inquire1")
+public class Inquire1 extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Ch01() {
+    public Inquire1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +33,7 @@ public class Ch01 extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         // response.getWriter().append("Served at: ").append(request.getContextPath());
-        System.out.println("Ch01 Servlet doGet() method");
+        System.out.println("Inquire1 doGet");
         processRequest(request, response);
     }
 
@@ -46,33 +46,28 @@ public class Ch01 extends HttpServlet {
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         // doGet(request, response);
-        System.out.println("Ch01 Servlet doPost() method");
+        System.out.println("Inquire1 doPost");
         processRequest(request, response);
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // TODO Auto-generated method stub
+
         /* Setting the Encoding of Input Data */
         request.setCharacterEncoding("UTF-8");
 
         /* Setting the encoding of the output data to the web page */
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
+        String country1 = request.getParameter("country1");
+        String cardId = request.getParameter("cardId");
 
-        String cname = request.getParameter("cname");
-        String start_date = request.getParameter("start_date");
-        String end_date = request.getParameter("end_date");
-        String start_time = request.getParameter("start_time");
-        String end_time = request.getParameter("end_time");
+        System.out.println("country1 -> " + country1);
+        System.out.println("cardId -> " + cardId);
 
-        System.out.println("cname -> " + cname);
-        System.out.println("start_date -> " + start_date);
-        System.out.println("end_date -> " + end_date);
-        System.out.println("start_time -> " + start_time);
-        System.out.println("end_time -> " + end_time);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Test_Page_1.html");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/restrictEnterString.html");
         requestDispatcher.forward(request, response);
     }
 
