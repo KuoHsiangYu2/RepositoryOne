@@ -1,0 +1,4 @@
+# 檔案名稱 .gitignore
+
+# 忽略 *.exe 檔案
+*.exe
