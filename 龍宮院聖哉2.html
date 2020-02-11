@@ -21,10 +21,15 @@
             position: absolute;
             /* transition: 0.5s all linear */
         }
+
+        .heimu {
+            background-color: rgb(0, 0, 0);
+        }
     </style>
 </head>
 
 <body>
+    <h1>龍宮院聖哉2</h1>
     <p>
         前陣子翻查 龍宮院聖哉 萌娘百科 的內容，<br>
         對於 技能表 的特效感到有趣，<br>
@@ -40,11 +45,15 @@
     <!-- https://beginnersbook.com/2019/04/jquery-hover-event/ -->
     <!-- https://www.w3school.com.cn/jquery/jquery_css_classes.asp -->
 
-
-    <h1>龍宮院聖哉2</h1>
+    <ul>
+        <li>聖哉君會將偽裝技能運用到底，如將自己的數值全部變為1。<del>這年頭連輔助偽裝技能都有攻擊性</del></li>
+        <li>開局和女神唱反調喊出了『Property』。<span class="heimu" title="你知道的太多了">然後看到了自己過去留下的話</span></li>
+    </ul>
+    <br /><br />
     <p>能力/技能/特技</p>
-    <div class="hover" style="width: 276px; height: 2138px;">
+    <div class="hover" style="width: 340px; height: 2138px;">
         <div class="hoverbefore" style="width: auto; height: auto; opacity: 1;">
+            <p>偷看別人的能力值是不道德的行為。</p>
             <table border="1">
                 <tbody>
                     <tr>
@@ -124,6 +133,7 @@
             </ul>
         </div>
         <div class="hoverafter" style="opacity: 0; width: auto; height: auto;">
+            <p>都叫你不要偷看了，莉絲坦！妳還看。</p>
             <table border="1">
                 <tbody>
                     <tr>
@@ -199,7 +209,7 @@
             </table>
             <ul>
                 <li>火炎魔法MAX</li>
-                <li>獲得經驗値增加</li>
+                <li>獲得經驗值增加</li>
                 <li>能力透視</li>
                 <li>原子分裂斬</li>
                 <li>地獄業火</li>
@@ -233,8 +243,8 @@
                         <li>第貳天獄門</li>
                     </ul>
                 </li>
-                <li>真・二刀流連擊劍</li>
-                <li>真・二刀流連擊劍・鳳凰炎舞斬</li>
+                <li>真-二刀流連擊劍</li>
+                <li>真-二刀流連擊劍-鳳凰炎舞斬</li>
                 <li>冥王貫通擊</li>
                 <li>移動式洞窟</li>
                 <li>壓縮空土砲</li>
@@ -246,7 +256,7 @@
                 <li>六芒星破邪的秘儀</li>
                 <li>狀態狂戰士
                     <ul>
-                        <li>狀態狂戰士・第2.8段階</li>
+                        <li>狀態狂戰士-第2.8段階</li>
                     </ul>
                 </li>
                 <li>爆轟焦破</li>
@@ -264,8 +274,8 @@
                 <li>移動式土蛇地雷</li>
                 <li>自然發火防禦</li>
                 <li>二刀流鳳凰炎舞斬</li>
-                <li>吸收動力再解放・限界突破型・幽滅靈劍</li>
-                <li>占術</li>
+                <li>吸收動力再解放-限界突破型-幽滅靈劍</li>
+                <li>占卜術</li>
                 <li>風壓障壁</li>
                 <li>高速職業轉換</li>
                 <li>鳳凰幻槍</li>
@@ -277,9 +287,8 @@
                 <li>冰狼亂封擊</li>
                 <li>透明化</li>
                 <li>全體同調透明化</li>
-                <li>情報汎共有擊</li>
                 <li>暗黑縛手</li>
-                <li>感染致死呪</li>
+                <li>感染致死咒</li>
                 <li>淨化光輝檻</li>
                 <li>永續反射貫光</li>
             </ul>
@@ -305,7 +314,7 @@
 
         $(".hoverafter").hover(
             function () {
-                //this code will execute when mouse enters the html element
+                // this code will execute when mouse enters the html element
                 // 當滑鼠移進去指定的 html element 時觸發這個函數。
                 console.log('hover3');
                 // opacity 1 代表不透明
@@ -314,13 +323,28 @@
                 $(".hoverafter").css("opacity", "1");
             },
             function () {
-                //this code will execute when mouse leaves the html element
+                // this code will execute when mouse leaves the html element
                 // 當滑鼠移出指定的 html element 時觸發這個函數。
                 console.log('hover4');
                 $(".hoverbefore").css("opacity", "1");
                 $(".hoverafter").css("opacity", "0");
             }
         );
+
+        $(".heimu").hover(
+            function () {
+                // this code will execute when mouse enters the html element
+                // 當滑鼠移進去指定的 html element 時觸發這個函數。
+                console.log('hover5');
+                $(".heimu").css("background-color", "rgb(255, 255, 255)");
+            },
+            function () {
+                // this code will execute when mouse leaves the html element
+                // 當滑鼠移出指定的 html element 時觸發這個函數。
+                console.log('hover6');
+                $(".heimu").css("background-color", "rgb(0, 0, 0)");
+            }
+        )
     </script>
 
 </body>
