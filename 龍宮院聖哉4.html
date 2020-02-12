@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>龍宮院聖哉4</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <style type="text/css">
+        .hover {
+            position: relative;
+        }
+
+        .hoverbefore {
+            position: absolute;
+            transition: 0.5s all linear;
+        }
+
+        .hoverafter {
+            position: absolute;
+            transition: 0.5s all linear;
+        }
+
+        .heimu {
+            /* 當滑鼠離開，呈現原始樣式。 */
+            background-color: rgb(0, 0, 0);
+        }
+
+        .heimu:hover {
+            /* 當滑鼠移進去的時候。 */
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>龍宮院聖哉4</h1>
+    <p>
+        前陣子翻查 龍宮院聖哉 萌娘百科 的內容，<br>
+        對於 技能表 的特效感到有趣，<br>
+        滑鼠移進去才會出現真實技能選單，<br>
+        滑鼠移開來則會顯示偽裝技能。<br>
+        我也參考 「原始網頁」 + 「上網查資料」 做了一個類似特效的畫面。<br>
+    </p>
+
+    <!-- https://zh.moegirl.org/zh-tw/%E9%BE%99%E5%AE%AB%E9%99%A2%E5%9C%A3%E5%93%89 -->
+    <!-- https://www.fooish.com/jquery/selectors.html -->
+    <!-- https://www.wibibi.com/info.php?tid=CSS3_transition_%E5%B1%AC%E6%80%A7 -->
+    <!-- https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/265842/ -->
+    <!-- https://forum.jquery.com/topic/what-is-the-opposite-of-hover -->
+    <!-- https://beginnersbook.com/2019/04/jquery-hover-event/ -->
+    <!-- https://www.w3school.com.cn/jquery/jquery_css_classes.asp -->
+
+    <ul>
+        <li>聖哉君會將偽裝技能運用到底，如將自己的數值全部變為1。<del>這年頭連輔助偽裝技能都有攻擊性</del></li>
+        <li>開局和女神唱反調喊出了『Property』。<span class="heimu" title="你知道的太多了">然後看到了自己過去留下的話</span></li>
+    </ul>
+    <br /><br />
+    <p>能力/技能/特技</p>
+    <div class="hover" style="width: 340px; height: 2138px;">
+        <div class="hoverbefore" style="width: auto; height: auto; opacity: 1;">
+            <p>偷看別人的能力值是不道德的行為。</p>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th colspan="2">
+                            能力值
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Lv
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            HP
+                        </th>
+                        <td>
+                            111
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            MP
+                        </th>
+                        <td>
+                            111
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            攻擊力
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            防禦力
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            速度
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            魔力
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            成長度
+                        </th>
+                        <td>
+                            1
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>火炎魔法Lv.1</li>
+                <li>魔法劍Lv.1</li>
+            </ul>
+        </div>
+        <div class="hoverafter" style="opacity: 0; width: auto; height: auto;">
+            <p>都叫你不要偷看了，莉絲坦！妳還看。</p>
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <th colspan="2">
+                            能力值
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Lv
+                        </th>
+                        <td>
+                            99(MAX)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            HP
+                        </th>
+                        <td>
+                            321960
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            MP
+                        </th>
+                        <td>
+                            88155
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            攻擊力
+                        </th>
+                        <td>
+                            293412
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            防禦力
+                        </th>
+                        <td>
+                            287644
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            速度
+                        </th>
+                        <td>
+                            268875
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            魔力
+                        </th>
+                        <td>
+                            58751
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            成長度
+                        </th>
+                        <td>
+                            999(MAX)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>火炎魔法MAX</li>
+                <li>獲得經驗值增加</li>
+                <li>能力透視</li>
+                <li>原子分裂斬</li>
+                <li>地獄業火</li>
+                <li>裂空斬</li>
+                <li>偽裝</li>
+                <li>爆炎魔法</li>
+                <li>魔法劍</li>
+                <li>飛翔</li>
+                <li>爆殺紅蓮獄</li>
+                <li>鳳凰炎舞斬</li>
+                <li>小隕石飛來衝</li>
+                <li>次元裂光斬</li>
+                <li>振動波</li>
+                <li>鳳凰貫通擊</li>
+                <li>鳳凰自動追擊</li>
+                <li>連擊劍</li>
+                <li>二刀流烈空斬</li>
+                <li>火炎弓</li>
+                <li>輝光弓</li>
+                <li>光矢三連射擊</li>
+                <li>光矢五連射擊</li>
+                <li>光矢七連射擊</li>
+                <li>光鳥變化自動追擊</li>
+                <li>破壞術式
+                    <ul>
+                        <li>掌握壓壞</li>
+                        <li>幽壞鐵鎖</li>
+                        <li>破力轉移</li>
+                        <li>等價返還</li>
+                        <li>天獄門</li>
+                        <li>第貳天獄門</li>
+                    </ul>
+                </li>
+                <li>真-二刀流連擊劍</li>
+                <li>真-二刀流連擊劍-鳳凰炎舞斬</li>
+                <li>冥王貫通擊</li>
+                <li>移動式洞窟</li>
+                <li>壓縮空土砲</li>
+                <li>無限落下</li>
+                <li>可視天井</li>
+                <li>鑑定</li>
+                <li>土蛇變化自動追擊</li>
+                <li>變化之術</li>
+                <li>六芒星破邪的秘儀</li>
+                <li>狀態狂戰士
+                    <ul>
+                        <li>狀態狂戰士-第2.8階</li>
+                    </ul>
+                </li>
+                <li>爆轟焦破</li>
+                <li>二刀流爆轟焦破</li>
+                <li>魔像生成</li>
+                <li>萬里鐵壁</li>
+                <li>鐵壁再生</li>
+                <li>可視土壁</li>
+                <li>爆彈鎖</li>
+                <li>鋼鐵圓蓋</li>
+                <li>怨念遮斷部屋</li>
+                <li>幽滅靈劍</li>
+                <li>吸收動力解放</li>
+                <li>蛇咬靈</li>
+                <li>移動式土蛇地雷</li>
+                <li>自然發火防禦</li>
+                <li>二刀流鳳凰炎舞斬</li>
+                <li>吸收動力再解放-限界突破型-幽滅靈劍</li>
+                <li>占卜術</li>
+                <li>風壓障壁</li>
+                <li>高速職業轉換</li>
+                <li>鳳凰幻槍</li>
+                <li>接觸雷擊</li>
+                <li>時空間操作無效領域</li>
+                <li>形態轉換法</li>
+                <li>擴散式雹彈</li>
+                <li>冰狼亂封擊</li>
+                <li>透明化</li>
+                <li>全體同調透明化</li>
+                <li>暗黑縛手</li>
+                <li>感染致死咒</li>
+                <li>淨化光輝檻</li>
+                <li>永續反射貫光</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        console.log('#1 test1');
+
+        $(".hoverafter").hover(
+            function () {
+                // this code will execute when mouse enters the html element
+                // 當滑鼠移進去指定的 html element 時觸發這個函數。
+                console.log('hover3');
+                // opacity 1 代表不透明
+                // opacity 0 代表100%透明，隱形起來。
+                $(".hoverbefore").css("opacity", "0");
+                $(".hoverafter").css("opacity", "1");
+            },
+            function () {
+                // this code will execute when mouse leaves the html element
+                // 當滑鼠移出指定的 html element 時觸發這個函數。
+                console.log('hover4');
+                $(".hoverbefore").css("opacity", "1");
+                $(".hoverafter").css("opacity", "0");
+            }
+        );
+    </script>
+
+</body>
+
+</html>
