@@ -1,4 +1,0 @@
-# 檔案名稱 .gitignore
-
-# 忽略編譯好的程式 target資料夾
-/target
