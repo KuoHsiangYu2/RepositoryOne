@@ -1,0 +1,1 @@
+sqlcmd -E -i "Exam1_1.sql"

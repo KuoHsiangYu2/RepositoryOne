@@ -1,0 +1,10 @@
+# 檔案名稱 .gitignore
+
+# 忽略編譯好的程式 bin資料夾
+/bin
+
+*.project
+
+*.classpath
+
+/.settings
