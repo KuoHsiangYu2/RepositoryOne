@@ -118,7 +118,7 @@ void checkWinner(Warrior warriorA, Warrior warriorB) {
 int main(int argc, char *argv[]) {
 	system("color f0");
 
-	/*  */
+	/* TODO: This program has errors, need fix. */
 
 	string userName = "";
 	string enemyName = "Monster";
