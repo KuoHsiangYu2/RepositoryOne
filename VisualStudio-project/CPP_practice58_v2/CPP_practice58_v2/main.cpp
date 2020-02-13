@@ -86,6 +86,7 @@ public:
 //依照 line群組「C系列 基礎→應用」 Jia Dian 的建議，
 //『在第88行 userWarrior 和 enemyWarrior 兩個參數加上參照&』，
 //修復此 bug。
+//http://wp.mlab.tw/?p=176
 void takeAction(int select, Warrior &userWarrior, Warrior &enemyWarrior) {
 	//執行選項1, 2, 3其中一項操作。
 	int attackValue = 0;
