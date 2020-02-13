@@ -54,8 +54,6 @@ public:
 	void addAttack() {
 		//戰士可以增加攻擊力
 		//(3)劍舞
-		/* 固定亂數種子 */
-		srand((unsigned int)time(NULL));
 		int random = 0;
 		//random = (rand() % (15 - 5 + 1)) + 5;// 5 ~ 15
 		random = (rand() % 11) + 5;// 5 ~ 15
@@ -85,7 +83,10 @@ public:
 	}
 };
 
-void takeAction(int select, Warrior userWarrior, Warrior enemyWarrior) {
+//依照 line群組「C系列 基礎→應用」 Jia Dian 的建議，
+//『在第88行 userWarrior 和 enemyWarrior 兩個參數加上參照&』，
+//修復此 bug。
+void takeAction(int select, Warrior &userWarrior, Warrior &enemyWarrior) {
 	//執行選項1, 2, 3其中一項操作。
 	int attackValue = 0;
 	switch (select) {
@@ -118,7 +119,8 @@ void checkWinner(Warrior warriorA, Warrior warriorB) {
 int main(int argc, char *argv[]) {
 	system("color f0");
 
-	/* TODO: This program has errors, need fix. */
+	/* 固定亂數種子 */
+	srand((unsigned int)time(NULL));
 
 	string userName = "";
 	string enemyName = "Monster";
@@ -157,7 +159,6 @@ int main(int argc, char *argv[]) {
 
 		cout << endl;
 		cout << "對手的回合" << endl;
-		srand((unsigned int)time(NULL));
 		//enemyInput = (rand() % (3 - 1 + 1)) + 1;// 1 ~ 3
 		enemyInput = (rand() % 3) + 1;// 1 ~ 3
 		takeAction(enemyInput, enemyWarrior, userWarrior);
