@@ -100,7 +100,7 @@ void takeAction(int select, Warrior userWarrior, Warrior enemyWarrior) {
 		userWarrior.addAttack();
 		break;
 	default:
-		printf("error. 請輸入 1 ~ 3 之間的數字。\n");
+		cout << "error. 請輸入 1 ~ 3 之間的數字。" << endl;
 		break;
 	}
 }
