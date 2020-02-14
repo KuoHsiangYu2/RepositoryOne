@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ChangeImage2</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+        function changePic(event) {
+            $("#show").attr("src", event.src);
+        }
+    </script>
+    <style type="text/css">
+        img {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Visual Studio Code：Ctrl + Shift + P 開啟輸入指令的欄位 -->
+    <!-- Visual Studio Code：F1 開啟輸入指令的欄位 -->
+    <figure>
+        <img id="show" src="msi.png" />
+    </figure>
+    <hr color="red" />
+    <img src="acer.png" onclick="changePic(this)" />
+    <img src="asus.png" onclick="changePic(this)" />
+    <img src="htc.png" onclick="changePic(this)" />
+    <img src="gigabyte.png" onclick="changePic(this)" />
+</body>
+
+</html>
+
+<!--
+
+吳品彥
+明日之星 · 昨天下午3:20
+我是html初學者，如圖一，我想讓點擊紅線下方的任何一個商標時，
+紅線上方的msi商標就會變成被點擊的商標，
+但結果卻變成圖二，圖卻無法顯示，怎麼了呢。
+https://www.facebook.com/groups/1403852566495675/permalink/2549135025300751/
+
+-->
