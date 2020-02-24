@@ -17,6 +17,7 @@ abstract class SchoolMember {
         out.printf("請輸入%s人數：", member);
         num = scanner.nextInt();
         try {
+            
             // 陣列索引值必須從0開始
             for (int j = 0; j < num; j++) {
                 out.printf("請輸入第%d位%s的名字：", (j + 1), member);
