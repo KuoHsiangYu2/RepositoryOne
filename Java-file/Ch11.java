@@ -1,42 +1,35 @@
-//尚未完成
 package ch11_6;
 
 import static java.lang.System.out;
 
 import java.util.Scanner;
 
-abstract class Parent {
-    String[] name = new String[10];
-    int[][] data = new int[10][5];
-    String str1 = "";
-    String str2 = "";
+abstract class SchoolMember {
 
-    public abstract void showInformation();
-}
+    public void showInformation(String member) {
+        String[] name = new String[10];
+        int[][] data = new int[10][4];
+        int num = 0;
 
-class Student extends Parent {
-    private int num = 0;
+        @SuppressWarnings("resource")
+        Scanner scanner = new Scanner(System.in);
 
-    Scanner scanner = new Scanner(System.in);
-
-    @Override
-    public void showInformation() {
+        out.printf("請輸入%s人數：", member);
+        num = scanner.nextInt();
         try {
-            out.print("請輸入學生人數：");
-            num = scanner.nextInt();
-
             // 陣列索引值必須從0開始
             for (int j = 0; j < num; j++) {
-                out.printf("請輸入第 %d 學生的名字：", (j + 1));
-                super.name[j] = scanner.next();
-                out.printf("請輸入第 %d 學生的年齡：", (j + 1));
-                super.data[j][0] = scanner.nextInt();
-                out.printf("請輸入第 %d 學生的學號：", (j + 1));
-                super.data[j][1] = scanner.nextInt();
-                out.printf("請輸入第 %d 學生的年級：", (j + 1));
-                super.data[j][2] = scanner.nextInt();
-                out.printf("請輸入第 %d 學生的總平均：", (j + 1));
-                super.data[j][3] = scanner.nextInt();
+                out.printf("請輸入第%d位%s的名字：", (j + 1), member);
+                name[j] = scanner.next();
+                out.printf("請輸入第%d位%s的年齡：", (j + 1), member);
+                data[j][0] = scanner.nextInt();
+                out.printf("請輸入第%d位%s的學號：", (j + 1), member);
+                data[j][1] = scanner.nextInt();
+                out.printf("請輸入第%d位%s的年級：", (j + 1), member);
+                data[j][2] = scanner.nextInt();
+                out.printf("請輸入第%d位%s的總平均：", (j + 1), member);
+                data[j][3] = scanner.nextInt();
+                out.printf("%n");
             }
 
         } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException e) {
@@ -44,53 +37,44 @@ class Student extends Parent {
             out.println("錯誤訊息：" + e);
         } finally {
             out.println("謝謝使用，再見。");
+            out.printf("%n");
         }
-    }
-}
 
-class Teacher extends Parent {
-    private int num = 0;
-    Scanner scanner = new Scanner(System.in);
+    }// end of showInformation method
+
+    public abstract void processShowInformation();
+    // end of processShowInformation [abstract method]
+
+}// end of SchoolMember class
+
+class Student extends SchoolMember {
 
     @Override
-    public void showInformation() {
-        System.out.print("請輸入有老師人數：");
-        num = scanner.nextInt();
-        for (int j = 0; j < num; j++) {
-            try {
-                out.printf("請輸入第 %d 老師的名字：", (j + 1));
-                super.name[j] = scanner.next();
-                out.printf("請輸入第 %d 老師的年齡：", (j + 1));
-                super.data[j][0] = scanner.nextInt();
-                out.printf("請輸入第 %d 老師的學號：", (j + 1));
-                super.data[j][1] = scanner.nextInt();
-                out.printf("請輸入第 %d 老師的年級：", (j + 1));
-                super.data[j][2] = scanner.nextInt();
-                out.printf("請輸入第 %d 老師的總平均：", (j + 1));
-                super.data[j][3] = scanner.nextInt();
+    public void processShowInformation() {
+        super.showInformation("學生");
+    }// end of processShowInformation method
 
-            } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException e) {
-                out.println("你的值超出陣列範圍！！");
-                out.println("錯誤訊息：" + e);
-            } finally {
-                out.println("謝謝使用，再見。");
-            }
-        }
+}// end of Student class
 
-    }
-}
+class Teacher extends SchoolMember {
+
+    @Override
+    public void processShowInformation() {
+        super.showInformation("老師");
+    }// end of processShowInformation method
+
+}// end of Teacher class
 
 public class Ch11 {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         Student student = new Student();
         Teacher teacher = new Teacher();
-        student.showInformation();
-        teacher.showInformation();
-    }
+        student.processShowInformation();
+        teacher.processShowInformation();
+    }// end of main method
 
-}
+}// end of Ch11 class
 
 //陳禮杰
 //14 分鐘
