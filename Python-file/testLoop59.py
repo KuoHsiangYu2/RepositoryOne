@@ -2,11 +2,13 @@
 #testLoop59.py
 #python 3.7.2
 
+#參考 蘇彥儒 的寫法，重新改寫 input 的提示字句。
+
 sum = 0.0
 avg = 0.0
 i = 1
-while(i <= 20):
-    score = float(input("please input 100 to 200: "))
+while(i <= 5):
+    score = float(input(f"{i}. please input 100 to 200: "))
     if not(100 <= score and score <= 200):
         print("once again")
         continue
@@ -18,6 +20,7 @@ print("avg is: %.2f"%(avg))
 
 '''
 https://www.facebook.com/groups/pythontw/permalink/10159736360778438/
+https://www.facebook.com/groups/pythontw/permalink/10159736360778438/?comment_id=10159736490823438
 All Feed
 49 分鐘
 不好意思，老是拋出問題，
