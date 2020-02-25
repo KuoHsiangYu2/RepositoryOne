@@ -7,7 +7,7 @@
 sum = 0.0
 avg = 0.0
 i = 1
-while(i <= 5):
+while(i <= 20):
     score = float(input(f"{i}. please input 100 to 200: "))
     if not(100 <= score and score <= 200):
         print("once again")
