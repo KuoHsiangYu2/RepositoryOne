@@ -7,45 +7,64 @@ import java.util.Scanner;
 
 public class Question1 {
     public static void main(String[] args) {
+
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        out.print("請選擇運算式（+、-、*、/）：");
+
         int answer = 0;
-        String operator = "";
-        operator = scanner.next();
         int a = 0;
         int b = 0;
+        String operator = "";
+
+        char[] pattern = new char[] { '+', '-', '*', '/' };
+        boolean matchPattern = false;
+
+        out.print("請選擇運算子（+、-、*、/）：");
+        operator = scanner.next();
+
+        for (int i = 0; i < pattern.length; i++) {
+            if (pattern[i] == operator.charAt(0)) {
+                matchPattern = true;
+            }
+        }
+
+        if (false == matchPattern || operator.length() > 1) {
+            out.println("error. 運算子必須為（+、-、*、/）");
+            System.exit(0);
+        }
+
         out.print("Num 1：");
         a = scanner.nextInt();
         out.print("Num 2：");
         b = scanner.nextInt();
+
         switch (operator) {
-        case "+":
-            answer = a + b;
-            out.println(answer);
-            break;
-        case "-":
-            answer = a - b;
-            out.println(answer);
-            break;
-        case "*":
-            answer = a * b;
-            out.println(answer);
-            break;
-        case "/":
-            try {
-                double answer2 = 0.0;
-                answer2 = calculate(a, b);
-                out.println(answer2);
-            } catch (DivideException Ex) {
-                err.println("Exception caught, msg = " + Ex.getMessage());
-                err.println("Ex = " + Ex);
-            }
-            break;
-        }
-        if (scanner != null) {
-            scanner.close();
-            scanner = null;
-        }
+            case "+":
+                answer = a + b;
+                out.println(answer);
+                break;
+            case "-":
+                answer = a - b;
+                out.println(answer);
+                break;
+            case "*":
+                answer = a * b;
+                out.println(answer);
+                break;
+            case "/":
+                try {
+                    double answer2 = 0.0;
+                    answer2 = calculate(a, b);
+                    out.println(answer2);
+                } catch (DivideException Ex) {
+                    err.println("Exception caught, msg = " + Ex.getMessage());
+                    err.println("Ex = " + Ex);
+                }
+                break;
+        }// end of switch-case
+
+        out.printf("%n");
+        out.println("finish");
     }// end of main method
 
     public static double calculate(int a, int b) throws DivideException {
@@ -54,7 +73,7 @@ public class Question1 {
             DivideException Ex = new DivideException(b);
             throw Ex;
         } else {
-            result = a / b;
+            result = (double) a / (double) b;
             return result;
         }
     }// end of calculate method
