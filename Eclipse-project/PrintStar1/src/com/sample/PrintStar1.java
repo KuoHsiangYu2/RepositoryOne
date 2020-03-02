@@ -2,7 +2,7 @@ package com.sample;
 
 import static java.lang.System.out;
 
-public class HelloWorldGraphics {
+public class PrintStar1 {
 
     public static void main(String[] args) {
         int count = 5;
