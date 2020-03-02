@@ -2,6 +2,10 @@ package com.sample;
 
 import static java.lang.System.out;
 
+/**
+ *
+ * @author 郭翔宇
+ */
 public class PrintStar1 {
 
     public static void main(String[] args) {
@@ -9,8 +13,36 @@ public class PrintStar1 {
         out.printf("請畫三角形%n");
         drawTriangle1(count);
         drawTriangle2(count);
-
+        drawDiamond3(count);
         out.printf("畫的還不錯！%n");
+    }
+
+    private static void drawDiamond3(int count) {
+        out.printf("%n");
+        out.printf("印菱形%n");
+        // 印菱形的上半身-start
+        for (int i = 1; i <= count; i++) {
+            for (int j = (count - i); j >= 1; j--) {
+                out.printf(" ");
+            }
+            for (int j = 1; j <= i; j++) {
+                out.printf("* ");
+            }
+            out.printf("%n");
+        }
+        // 印菱形的上半身-end
+
+        // 印菱形的上半身-start
+        for (int i = 1; i <= count; i++) {
+            for (int j = 1; j <= i; j++) {
+                out.printf(" ");
+            }
+            for (int j = (count - i); j >= 1; j--) {
+                out.printf("* ");
+            }
+            out.printf("%n");
+        }
+        // 印菱形的上半身-end
     }
 
     private static void drawTriangle2(int count) {
