@@ -32,7 +32,7 @@ public class PrintStar1 {
         }
         // 印菱形的上半身-end
 
-        // 印菱形的上半身-start
+        // 印菱形的下半身-start
         for (int i = 1; i <= count; i++) {
             for (int j = 1; j <= i; j++) {
                 out.printf(" ");
@@ -42,7 +42,7 @@ public class PrintStar1 {
             }
             out.printf("%n");
         }
-        // 印菱形的上半身-end
+        // 印菱形的下半身-end
     }
 
     private static void drawTriangle2(int count) {
