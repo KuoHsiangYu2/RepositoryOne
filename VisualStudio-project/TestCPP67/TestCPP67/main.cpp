@@ -1,6 +1,7 @@
 ﻿#define PI 3.14159265358979323846
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -10,14 +11,15 @@ public:
 	int getCubeVolume(int sideLength) {
 		//A. 輸入1個非零值時，計算正方體體積(邊長×邊長×邊長)
 		int answer = 0;
-		answer = sideLength * sideLength * sideLength;
+		// pow(2, 4); 代表計算 2 的 4次方。
+		answer = (int)pow(sideLength, 3);
 		return answer;
 	}
 
 	int getCylinderVolume(int radius, int height) {
 		//B.輸入2個非零值時，計算圓柱體體積(半徑×半徑×3.14×高)
 		int answer = 0;
-		answer = radius * radius * (int)PI * height;
+		answer = (int)pow(radius, 2) * (int)PI * height;
 		return answer;
 	}
 
