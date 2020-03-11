@@ -37,12 +37,13 @@ public class P02Restaurant {
         OutputStreamWriter osw = null;
         pw = null;
         try {
-            fos = new FileOutputStream(file, false);// false 代表從新開始覆寫檔案
+            fos = new FileOutputStream(file, false);// false 代表重新開始覆寫檔案
             osw = new OutputStreamWriter(fos, "UTF-8");// setting utf-8 encoding
             pw = new PrintWriter(osw);
 
             // Windows 作業系統電腦 換行符號 \r\n
-            pw.write("Chicken Leg" + "," + "Chicken Rib" + "," + "Can" + "\r\n");
+            // pw.write("Chicken Leg" + "," + "Chicken Rib" + "," + "Can" + "\r\n");
+            pw.println("Chicken Leg" + "," + "Chicken Rib" + "," + "Can");
 
             P02Restaurant.order();
 
@@ -89,7 +90,8 @@ public class P02Restaurant {
         sumCan = random.nextInt(11);
 
         // 必須轉成 String字串 才能印出正常的數字與文字。
-        pw.write(String.valueOf(sumChickLeg) + "\r\n");
+        // pw.write(String.valueOf(sumChickLeg) + "\r\n");
+        pw.println(sumChickLeg);
     }
 }
 
