@@ -92,3 +92,6 @@ public class P02Restaurant {
         pw.write(String.valueOf(sumChickLeg) + "\r\n");
     }
 }
+
+//https://www.facebook.com/groups/1403852566495675/permalink/2569952293219024/
+//https://pastebin.com/TxatbhfG
