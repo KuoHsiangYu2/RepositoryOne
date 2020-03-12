@@ -1,0 +1,37 @@
+<!-- https://www.runoob.com/js/js-timing.html -->
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestJavaScript4</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            let showObj = document.getElementById("show");
+            let count = 0;
+            let countStr = "";
+
+            let intervalObj = window.setInterval(myTimer, 1000);
+
+            function myTimer() {
+                count = count + 1;
+                countStr = countStr + count + "<br />";
+                showObj.innerHTML = countStr;
+                if (count === 5) {
+                    window.clearInterval(intervalObj);
+                }
+            }
+
+        });
+    </script>
+</head>
+
+<body>
+    <p>TestJavaScript4</p>
+    <p>window.setInterval()</p>
+    <p>在 Google Chrome瀏覽器可以正常顯示，在IE瀏覽器也可以正常顯示。</p>
+    <div id="show"></div>
+</body>
+
+</html>
