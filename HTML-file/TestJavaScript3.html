@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestJavaScript3</title>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            let showObj = document.getElementById("show");
+            let countStr = "";
+            for (let i = 1; i <= 5; i++) {
+                window.setTimeout(function () {
+                    console.log(i);
+                    countStr = countStr + i + "<br />";
+                    showObj.innerHTML = countStr;
+                }, 1000 * i);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <p>TestJavaScript3</p>
+    <p>在 Google Chrome瀏覽器都可以正常顯示，在IE瀏覽器就是無法正常顯示。</p>
+    <div id="show"></div>
+</body>
+
+</html>
