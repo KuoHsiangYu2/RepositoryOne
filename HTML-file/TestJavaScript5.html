@@ -26,6 +26,16 @@
             }, 1000 * i);
         }
 
+        function supportsLiterals() {
+            // 這個函數用來檢查瀏覽器是否支援 Template literals
+            // IE瀏覽器 絕對不支援 Template literals
+            try {
+                return eval("'' === ``");
+            } catch (e) {
+                return false;
+            }
+        }
+
 
         function detectBrowser() {
             let browserStr = "";
@@ -35,24 +45,36 @@
             let Opera = window.navigator.userAgent.match("Opera") > -1;　//判斷是否為 Opera
             let Safari = window.navigator.userAgent.match("Safari") > -1;　//判斷是否為 Safari 或 Google Chrome
 
+            // console.log("$a typeof Firefox : " + typeof (Firefox));
+            // console.log("$a Firefox : " + Firefox);
+            // console.log("$a typeof MSIE : " + typeof (MSIE));
+            // console.log("$a MSIE : " + MSIE);
+            // console.log("$a typeof Opera : " + typeof (Opera));
+            // console.log("$a Opera : " + Opera);
+            // console.log("$a typeof Safari : " + typeof (Safari));
+            // console.log("$a Safari : " + Safari);
+
             Firefox = !Firefox;
             MSIE = !MSIE;
             Opera = !Opera;
             Safari = !Safari;
 
-            console.log("$0 typeof Firefox : " + typeof (Firefox));
-            console.log("$0 Firefox : " + Firefox);
-            console.log("$0 typeof MSIE : " + typeof (MSIE));
-            console.log("$0 MSIE : " + MSIE);
-            console.log("$0 typeof Opera : " + typeof (Opera));
-            console.log("$0 Opera : " + Opera);
-            console.log("$0 typeof Safari : " + typeof (Safari));
-            console.log("$0 Safari : " + Safari);
+            // console.log("$0 typeof Firefox : " + typeof (Firefox));
+            // console.log("$0 Firefox : " + Firefox);
+            // console.log("$0 typeof MSIE : " + typeof (MSIE));
+            // console.log("$0 MSIE : " + MSIE);
+            // console.log("$0 typeof Opera : " + typeof (Opera));
+            // console.log("$0 Opera : " + Opera);
+            // console.log("$0 typeof Safari : " + typeof (Safari));
+            // console.log("$0 Safari : " + Safari);
 
-            if (!String.prototype.padEnd) {
-                /* TODO: fix-code-1 */
-                // 因為上面的程式碼抓不到IE瀏覽器的特徵，
-                // 所以我再多用一個 String 是否包含 padStart、padEnd屬性 的判斷來檢查是否是 IE瀏覽器。
+            // if (!String.prototype.padEnd) {
+            //     // 因為上面的程式碼抓不到IE瀏覽器的特徵，
+            //     // 所以我再多用一個 String 是否包含 padStart、padEnd屬性 的判斷來檢查是否是 IE瀏覽器。
+            //     MSIE = true;
+            // }
+
+            if (false === supportsLiterals()) {
                 MSIE = true;
             }
 
@@ -61,27 +83,26 @@
                 console.log("typeof Firefox : " + typeof (Firefox));
                 console.log("Firefox : " + Firefox);
                 browserStr = "Mozilla Firefox 瀏覽器";
-            }
-            if (MSIE) {
-                /* TODO: didn't work, need to add fix-code-1 to fix it. */
+            } else if (MSIE) {
+                /* TODO: didn't work */
                 console.log("#2 MSIE");
                 console.log("typeof MSIE : " + typeof (MSIE));
                 console.log("MSIE : " + MSIE);
                 browserStr = "Internet Explorer 瀏覽器";
-            }
-            if (Opera) {
+            } else if (Opera) {
                 /* TODO: didn't work */
                 console.log("#3 Opera");
                 console.log("typeof Opera : " + typeof (Opera));
                 console.log("Opera : " + Opera);
                 browserStr = "Opera 瀏覽器";
-            }
-            if (Safari) {
+            } else if (Safari) {
                 /* TODO: [Safari, Microsoft Edge, Opera] will also enter this conditional judgment. */
                 console.log("#4 Safari/Google Chrome/Microsoft Edge/Opera");
                 console.log("typeof Safari : " + typeof (Safari));
                 console.log("Safari : " + Safari);
                 browserStr = "Google Chrome 瀏覽器";
+            } else {
+                console.log("#else didn't find browser type.");
             }
 
             return browserStr;
@@ -123,4 +144,10 @@ https://juejin.im/post/5ca2107b6fb9a05e5516388e
 JavaScript — 大括號換行問題
 https://medium.com/@mybaseball52/javascript-%E5%A4%A7%E6%8B%AC%E8%99%9F%E6%8F%9B%E8%A1%8C%E5%95%8F%E9%A1%8C-e507d86f8949
 
+檢查瀏覽器是否支援 Template literals
+Detecting Template Literals in the Browser (in an unusual context)
+https://stackoverflow.com/questions/55583584/detecting-template-literals-in-the-browser-in-an-unusual-context
+
+Template literals
+https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals
 -->
