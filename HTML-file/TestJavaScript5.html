@@ -36,46 +36,25 @@
             }
         }
 
-
         function detectBrowser() {
             let browserStr = "";
 
-            let Firefox = window.navigator.userAgent.match("Firefox") > -1;　//判斷是否為 FireFox
-            let MSIE = window.navigator.userAgent.match("MSIE") > -1;　//判斷是否為 IE
-            let Opera = window.navigator.userAgent.match("Opera") > -1;　//判斷是否為 Opera
-            let Safari = window.navigator.userAgent.match("Safari") > -1;　//判斷是否為 Safari 或 Google Chrome
+            let Firefox = window.navigator.userAgent.match("Firefox");　//判斷是否為 FireFox
+            let MSIE = window.navigator.userAgent.match("MSIE");　//判斷是否為 IE
+            let Opera = window.navigator.userAgent.match("Opera");　//判斷是否為 Opera
+            let Safari = window.navigator.userAgent.match("Safari");　//判斷是否為 Safari 或 Google Chrome
 
-            // console.log("$a typeof Firefox : " + typeof (Firefox));
-            // console.log("$a Firefox : " + Firefox);
-            // console.log("$a typeof MSIE : " + typeof (MSIE));
-            // console.log("$a MSIE : " + MSIE);
-            // console.log("$a typeof Opera : " + typeof (Opera));
-            // console.log("$a Opera : " + Opera);
-            // console.log("$a typeof Safari : " + typeof (Safari));
-            // console.log("$a Safari : " + Safari);
-
-            Firefox = !Firefox;
-            MSIE = !MSIE;
-            Opera = !Opera;
-            Safari = !Safari;
-
-            // console.log("$0 typeof Firefox : " + typeof (Firefox));
-            // console.log("$0 Firefox : " + Firefox);
-            // console.log("$0 typeof MSIE : " + typeof (MSIE));
-            // console.log("$0 MSIE : " + MSIE);
-            // console.log("$0 typeof Opera : " + typeof (Opera));
-            // console.log("$0 Opera : " + Opera);
-            // console.log("$0 typeof Safari : " + typeof (Safari));
-            // console.log("$0 Safari : " + Safari);
-
-            // if (!String.prototype.padEnd) {
-            //     // 因為上面的程式碼抓不到IE瀏覽器的特徵，
-            //     // 所以我再多用一個 String 是否包含 padStart、padEnd屬性 的判斷來檢查是否是 IE瀏覽器。
-            //     MSIE = true;
-            // }
+            console.log("$0 typeof Firefox : " + typeof (Firefox));
+            console.log("$0 Firefox : " + Firefox);
+            console.log("$0 typeof MSIE : " + typeof (MSIE));
+            console.log("$0 MSIE : " + MSIE);
+            console.log("$0 typeof Opera : " + typeof (Opera));
+            console.log("$0 Opera : " + Opera);
+            console.log("$0 typeof Safari : " + typeof (Safari));
+            console.log("$0 Safari : " + Safari);
 
             if (false === supportsLiterals()) {
-                MSIE = true;
+                MSIE = new Object();
             }
 
             if (Firefox) {
@@ -103,6 +82,7 @@
                 browserStr = "Google Chrome 瀏覽器";
             } else {
                 console.log("#else didn't find browser type.");
+                browserStr = "";
             }
 
             return browserStr;
