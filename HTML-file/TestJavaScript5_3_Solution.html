@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestJavaScript5_3_Solution</title>
+</head>
+
+<body>
+    <h1>
+        <div id="browserClass"></div>
+    </h1>
+    <p>TestJavaScript5_3_Solution</p>
+    <p>window.setInterval()</p>
+    <div id="show"></div>
+
+    <script type="text/javascript">
+        let showObj = document.getElementById("show");
+        let count = 0;
+        let countStr = "";
+
+        let intervalObj = window.setInterval(myTimer, 1000);
+
+        function myTimer() {
+            count = count + 1;
+            countStr = countStr + count + "<br />";
+            showObj.innerHTML = countStr;
+            if (count === 5) {
+                window.clearInterval(intervalObj);
+            }
+        }
+
+        function supportsLiterals() {
+            // 這個函數用來檢查瀏覽器是否支援 Template literals
+            // IE瀏覽器 絕對不支援 Template literals
+            try {
+                return eval("'' === ``");
+            } catch (e) {
+                return false;
+            }
+        }
+
+        function detectBrowser() {
+            let browserStr = "";
+
+            let Firefox = window.navigator.userAgent.match("Firefox"); //判斷是否為 FireFox
+            let MSIE = window.navigator.userAgent.match("MSIE"); //判斷是否為 IE
+            let Opera = window.navigator.userAgent.match("Opera"); //判斷是否為 Opera
+            let Safari = window.navigator.userAgent.match("Safari"); //判斷是否為 Safari 或 Google Chrome
+
+            if (false === supportsLiterals()) {
+                MSIE = new Object();
+            }
+
+            if (Firefox) {
+                console.log("#1 Firefox");
+                browserStr = "Mozilla Firefox 瀏覽器";
+            } else if (MSIE) {
+                /* TODO: didn't work */
+                console.log("#2 MSIE");
+                browserStr = "Internet Explorer 瀏覽器";
+            } else if (Opera) {
+                /* TODO: didn't work */
+                console.log("#3 Opera");
+                browserStr = "Opera 瀏覽器";
+            } else if (Safari) {
+                /* TODO: [Safari, Microsoft Edge, Opera] will also enter this conditional judgment. */
+                console.log("#4 Safari/Google Chrome/Microsoft Edge/Opera");
+                browserStr = "Google Chrome 瀏覽器";
+            } else {
+                console.log("#else didn't find browser type.");
+                browserStr = "";
+            }
+
+            return browserStr;
+        }
+
+        let browserClassObj = document.getElementById("browserClass");
+        browserClassObj.innerText = detectBrowser();
+    </script>
+</body>
+
+</html>
+<!--
+參考資料：
+
+從 V8 bytecode 看 let 與 var 的效能問題 #54
+https://github.com/aszx87410/blog/issues/54
+
+實作非同步迴圈
+https://www.jstips.co/zh_tw/javascript/implementing-asynchronous-loops/
+
+JavaScript 计时事件
+https://www.runoob.com/js/js-timing.html
+
+談談 JavaScript 的 setTimeout 與 setInterval
+https://kuro.tw/posts/2019/02/23/%E8%AB%87%E8%AB%87-JavaScript-%E7%9A%84-setTimeout-%E8%88%87-setInterval/
+
+JavaScript 判斷瀏覽器技巧分享
+https://www.wibibi.com/info.php?tid=99
+
+[JavaScript][HTML][CSS][PHP][JSP] 判斷使用者瀏覽器版本之方法
+https://ithelp.ithome.com.tw/articles/10095184
+
+JavaScript navigator Object
+https://www.fooish.com/javascript/navigator.html
+
+面试官：你知道Callback Hell（回调地狱）吗？
+https://juejin.im/post/5ca2107b6fb9a05e5516388e
+
+JavaScript — 大括號換行問題
+https://medium.com/@mybaseball52/javascript-%E5%A4%A7%E6%8B%AC%E8%99%9F%E6%8F%9B%E8%A1%8C%E5%95%8F%E9%A1%8C-e507d86f8949
+
+檢查瀏覽器是否支援 Template literals
+Detecting Template Literals in the Browser (in an unusual context)
+https://stackoverflow.com/questions/55583584/detecting-template-literals-in-the-browser-in-an-unusual-context
+
+Template literals
+https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals
+-->
