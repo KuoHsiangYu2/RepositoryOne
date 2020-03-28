@@ -35,7 +35,7 @@ void sort(int *array, int length) {
 }
 
 int triangleType(int side1, int side2, int side3) {
-	//判斷三角形是[銳角三角形][直角三角形][等腰三角形]
+	//判斷三角形是[銳角三角形][直角三角形][鈍角三角形]
 	if ((power(side1, 2) + power(side2, 2)) > power(side3, 2)) {
 		//#0 銳角三角形
 		return 0;
