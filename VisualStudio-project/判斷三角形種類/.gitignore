@@ -2,3 +2,5 @@
 
 # 忽略編譯好 *.exe 的 Debug資料夾
 /Debug
+
+/.vs
