@@ -1,0 +1,9 @@
+.profCol {
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.horizontalGroup {
+    display: flex;
+    width: 100%;
+}
