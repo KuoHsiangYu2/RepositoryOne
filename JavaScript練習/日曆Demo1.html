@@ -1,0 +1,89 @@
+<!--
+參考資料：
+
+Is there any way to change input type="date" format?
+https://stackoverflow.com/questions/7372038/is-there-any-way-to-change-input-type-date-format
+
+http://jsfiddle.net/g7mvaosL/
+-->
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日曆Demo1</title>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script type="text/javascript">
+        "use strict";
+
+        if (!String.prototype.padStart) {
+            console.log("start loading padStart() function for Internet Explorer browser");
+            String.prototype.padStart = function padStart(targetLength, padString) {
+                if (this.length >= targetLength) {
+                    return String(this);
+                } else {
+                    var thisObj = String(this);
+                    var thisArray = thisObj.split("");
+                    while (thisArray.length < targetLength) {
+                        thisArray.unshift(padString);
+                    }
+                    return thisArray.join('');
+                }
+            };
+        }
+    </script>
+
+    <style type="text/css">
+        .inputClass {
+            position: relative;
+            width: 150px;
+            height: 20px;
+            color: white;
+        }
+
+        .inputClass:before {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            content: attr(data-date);
+            display: inline-block;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <p>日曆Demo1</p>
+    <p>只能用 Google Chrome Browser 打開此網頁，<br />來正常顯示日曆。</p>
+
+    <form method="get" action="#" enctype="application/x-www-form-urlencoded">
+        <p>
+            <input id="date1" name="date1" type="date" data-date="" class="inputClass" value="" />
+        </p>
+        <input type="submit" value="提交" />
+    </form>
+
+    <script type="text/javascript">
+        "use strict";
+
+        var dateObj = new Date();
+        var year = dateObj.getFullYear();
+        var month = (dateObj.getMonth() + 1);
+        var date = dateObj.getDate();
+
+        var dateString = String(year).padStart(4, "0") + "-"
+            + String(month).padStart(2, "0") + "-" + String(date).padStart(2, "0");
+
+        // 設定今天的日期給 input 的 value屬性
+        $("#date1").val(dateString);
+
+        $("#date1").on("change", function () {
+            this.setAttribute("data-date", moment(this.value, "YYYY-MM-DD").format("YYYY-MM-DD"));
+        }).trigger("change");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!--
+參考資料：
+https://www.runoob.com/jqueryui/example-datepicker.html
+https://ithelp.ithome.com.tw/articles/10197059
+-->
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery日曆Demo2</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        "use strict";
+
+        // TODO: 如果瀏覽器沒有 String.prototype.padStart屬性，就自己設一個，自己的屬性自己設。一切都是為了 100% 支援 IE瀏覽器。
+        // https://www.itread01.com/content/1532584990.html
+        // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+        // https://www.w3school.com.cn/jsref/jsref_unshift.asp
+        // https://ithelp.ithome.com.tw/articles/10205221
+        // https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+        if (!String.prototype.padStart) {
+            // 為了支援IE瀏覽器而寫的函數。
+            console.log("start loading padStart() function for Internet Explorer browser");
+            String.prototype.padStart = function padStart(targetLength, padString) {
+                if (this.length >= targetLength) {
+                    return String(this);
+                } else {
+                    var thisObj = String(this);
+                    var thisArray = thisObj.split("");
+                    while (thisArray.length < targetLength) {
+                        // 從左邊開始插入padString
+                        thisArray.unshift(padString);
+                    }
+                    // 最後用 ''字串 隔開組合成一個完整的 String 回傳回去。
+                    return thisArray.join('');
+                }
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <p>jQuery日曆Demo2</p>
+    <form method="get" action="#" enctype="application/x-www-form-urlencoded">
+        <p>
+            <!-- autocomplete="off" 禁止 input標籤記憶使用者輸入過的字串 -->
+            <!-- onfocus="this.blur()" 避免使用者能夠直接在input標籤打字輸入日期 -->
+            日期：
+            <input type="text" id="datepicker" name="datepicker" autocomplete="off" onfocus="this.blur()" />
+        </p>
+        <p>
+            開始日期：
+            <input type="text" id="startDate" name="startDate" autocomplete="off" onfocus="this.blur()" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            結束日期：
+            <input type="text" id="endDate" name="endDate" autocomplete="off" onfocus="this.blur()" />
+        </p>
+        <input type="submit" value="提交" />
+        <input type="reset" value="重設" />
+    </form>
+
+    <script type="text/javascript">
+        "use strict";
+
+        var dateObj = new Date();
+        var year = dateObj.getFullYear();
+        var month = (dateObj.getMonth() + 1);
+        var date = dateObj.getDate();
+
+        var dateString = String(year).padStart(4, "0") + "-"
+            + String(month).padStart(2, "0") + "-" + String(date).padStart(2, "0");
+
+        // 設定今天的日期給 input 的 value屬性
+        $("#datepicker").val(dateString);
+        $("#startDate").val(dateString);
+        $("#endDate").val(dateString);
+
+        // 設定 年-月-日 格式
+        $("#datepicker").datepicker({
+            dateFormat: "yy-mm-dd",
+        });
+
+        $("#startDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            onClose: function (selectedDate) {
+                $("#endDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+        $("#endDate").datepicker({
+            dateFormat: "yy-mm-dd",
+            onClose: function (selectedDate) {
+                $("#startDate").datepicker("option", "maxDate", selectedDate);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
