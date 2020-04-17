@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日曆_下拉式選單_error</title>
+    <style type="text/css">
+        .pClass {
+            border: 1px solid;
+            width: 350px;
+            height: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>日曆_下拉式選單_error</p>
+    <p class="pClass">
+        西元年：
+        <select id="idSelectYear">
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        月：
+        <select id="idSelectMonth">
+        </select>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        日：
+        <select id="idSelectDate">
+        </select>
+    </p>
+
+    <script type="text/javascript">
+        "use strict";
+
+        var idSelectYearObj = document.getElementById("idSelectYear");
+        var idSelectMonthObj = document.getElementById("idSelectMonth");
+        var idSelectDateObj = document.getElementById("idSelectDate");
+
+        function addDate() {
+            var year = idSelectYearObj.value;
+            var month = idSelectMonthObj.value;
+            var dateNumber = new Date(year, month, 0).getDate();// 取得指定月份的天數
+            console.log("year = " + year);
+            console.log("month = " + month);
+            console.log("dateNumber = " + dateNumber);
+            var length = idSelectDateObj.options.length;
+            console.log("length : " + length);
+            for (var i = 0; i < length; i++) {
+                var printStr = "idSelectDateObj.options[" + i + "]" + "=" + idSelectDateObj.options[i];
+                console.log(printStr);
+                idSelectDateObj.removeChild(idSelectDateObj.options[i]);
+                idSelectDateObj.remove(i);
+                idSelectDateObj.options[i] = null;
+            }
+            for (var i = 1; i <= dateNumber; i++) {
+                var optionObj = document.createElement("option");
+                optionObj.setAttribute("value", i);
+                var optTxt = document.createTextNode(i);
+                optionObj.appendChild(optTxt);
+                idSelectDateObj.appendChild(optionObj);
+            }
+        }
+
+        idSelectYearObj.addEventListener("change", addDate);
+        idSelectMonthObj.addEventListener("change", addDate);
+
+        for (var i = 2000; i <= 2030; i++) {
+            var optionObj = document.createElement("option");
+            optionObj.setAttribute("value", i);
+            var optTxt = document.createTextNode(i);
+            optionObj.appendChild(optTxt);
+            idSelectYearObj.appendChild(optionObj);
+        }
+
+        for (var i = 1; i <= 12; i++) {
+            var optionObj = document.createElement("option");
+            optionObj.setAttribute("value", i);
+            var optTxt = document.createTextNode(i);
+            optionObj.appendChild(optTxt);
+            idSelectMonthObj.appendChild(optionObj);
+        }
+    </script>
+</body>
+
+</html>
