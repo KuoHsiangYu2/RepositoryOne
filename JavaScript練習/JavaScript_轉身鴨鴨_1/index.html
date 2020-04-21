@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <script type="text/javascript">
+        "use strict";
+
+        var inputArray = new Array();
+
+        // ECMAScript 6 允許 JavaScript程式設計師用 class關鍵字 來宣告一個類別。
+        // Data類別，封裝 [id], [shape], [sideLength] 三個資料
+        class Data {
+            constructor(id, shape, sideLength) {
+                // 建構子
+                this.id = id;
+                this.shape = shape;
+                this.sideLength = sideLength;
+            }
+        }
+
+        inputArray[0] = new Data(1, "Circle", "10");
+        inputArray[1] = new Data(2, "Rectangle", "12 & 3");
+        inputArray[2] = new Data(3, "Square", "5");
+        inputArray[3] = new Data(4, "Square", "7");
+        inputArray[4] = new Data(5, "Circle", "6");
+        inputArray[5] = new Data(6, "Rectangle", "4 & 8");
+        inputArray[6] = new Data(7, "Rectangle", "3 & 10");
+
+        function circleFun(input) {
+            var result = "圓形, ";
+            var circumference = 0.0;// 周長
+            var area = 0.0;// 面積
+            var radius = 0.0;// 半徑
+            radius = parseInt(input.sideLength.trim());
+            circumference = 2 * radius * Math.PI;
+            area = Math.pow(radius, 2.0) * Math.PI;
+            result = result + "面積=" + area + ", 周長=" + circumference;
+            console.log(result);
+        }
+
+        function RectangleFun(input) {
+            var result = "長方形, ";
+            var perimeter = 0.0;// 周長
+            var area = 0.0;// 面積
+            var length = 0.0;// 長
+            var width = 0.0;// 寬
+            var inputArray = input.sideLength.trim().split("&");
+            length = parseInt(inputArray[0]);
+            width = parseInt(inputArray[1]);
+            perimeter = (2 * length) + (2 * width);
+            area = length * width;
+            result = result + "面積=" + area + ", 周長=" + perimeter;
+            console.log(result);
+        }
+
+        function squareFun(input) {
+            var result = "正方形, ";
+            var perimeter = 0.0;// 周長
+            var area = 0.0;// 面積
+            var length = 0.0;// 邊長
+            length = parseInt(input.sideLength.trim());
+            perimeter = length * 4;
+            area = Math.pow(length, 2.0);
+            result = result + "面積=" + area + ", 周長=" + perimeter;
+            console.log(result);
+        }
+
+        var length = inputArray.length;
+
+        for (var i = 0; i < length; i++) {
+            switch (inputArray[i].shape) {
+                case "Circle":
+                    circleFun(inputArray[i]);
+                    break;
+                case "Rectangle":
+                    RectangleFun(inputArray[i]);
+                    break;
+                case "Square":
+                    squareFun(inputArray[i]);
+                    break;
+                default:
+                    // do nothing
+                    break;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <p>index</p>
+    <p>inputArray[0] = new Data(1, "Circle", "10");</p>
+    <p>inputArray[1] = new Data(2, "Rectangle", "12 & 3");</p>
+    <p>inputArray[2] = new Data(3, "Square", "5");</p>
+    <p>inputArray[3] = new Data(4, "Square", "7");</p>
+    <p>inputArray[4] = new Data(5, "Circle", "6");</p>
+    <p>inputArray[5] = new Data(6, "Rectangle", "4 & 8");</p>
+    <p>inputArray[6] = new Data(7, "Rectangle", "3 & 10");</p>
+    <p><a href="https://www.facebook.com/groups/1403852566495675/permalink/2603584246522495/">原始題目連結</a></p>
+</body>
+
+</html>

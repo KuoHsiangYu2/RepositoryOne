@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Bin</title>
+    <script type="text/javascript">
+        var res = [{ shape: "Circle", width: "10", height: "" },
+        { shape: "Rectangle", width: "12", height: "3" },
+        { shape: "Square", width: "5", height: "5" }];
+
+        console.log("res.length = " + res.length);
+
+        var resLength = res.length;
+        for (var i = 0; i < resLength; i++) {
+            switch (res[i].shape) {
+                case "Circle":
+                    console.log("圓形");
+                    break;
+                case "Rectangle":
+                    console.log("長方形");
+                    break;
+                case "Square":
+                    console.log("正方形");
+                    break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>JS Bin</p>
+</body>
+
+</html>
+
+<!-- https://jsbin.com/rumaguqile/edit?html,js,console -->
