@@ -17,9 +17,9 @@ public class ListToMap {
 		// 初始輸入 ArrayList
 		List<String> items = Arrays.asList("蘋果", "蘋果", "香蕉", "蘋果", "柳丁", "香蕉", "椰子");
 
-		// 第一個 HashMap【itemsMap】統計一個詞彙出現幾次
+		// 1. HashMap【itemsMap】統計一個詞彙出現幾次
 		Map<String, Integer> itemsMap = new HashMap<String, Integer>();
-
+		
 		for (int i = 0, length = items.size(); i < length; i++) {
 			if (false == itemsMap.containsKey(items.get(i))) {
 				// 如果是第一次出現的值，預設給他 1
@@ -32,7 +32,7 @@ public class ListToMap {
 			}
 		}
 
-		// 第二個 HashMap【itemsMapResult】 儲存 數字-字串
+		// 2. HashMap【itemsMapResult】 儲存 數字-字串
 		Map<Integer, String> itemsMapResult = new HashMap<Integer, String>();
 
 		Iterator<Map.Entry<String, Integer>> itemsMapIterator = itemsMap.entrySet().iterator();
