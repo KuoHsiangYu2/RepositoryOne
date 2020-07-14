@@ -1,0 +1,9 @@
+.no {
+	/* 標記編號的CSS */
+	width: 30px;
+}
+
+input[readonly="readonly"] {
+	/* 唯讀區域上灰色 */
+	background-color: #dddddd;
+}
