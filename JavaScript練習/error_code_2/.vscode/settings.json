@@ -1,4 +1,4 @@
 {
-	"editor.fontSize": 20,
-	"previewServer.port": 8181
+    "editor.fontSize": 18,
+    "previewServer.port": 8181
 }
