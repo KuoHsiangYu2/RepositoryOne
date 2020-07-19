@@ -1,3 +1,27 @@
+/*
+[筆記] 針對表格使用邊框圓角(table with border-radius)
+https://pjchender.blogspot.com/2015/12/table-with-border-radius.html
+
+padding
+https://developer.mozilla.org/zh-TW/docs/Web/CSS/padding
+
+Day11-HTML元素邊界關係！margin、padding、border
+https://ithelp.ithome.com.tw/articles/10205322
+
+[技術分享] CSS中的多重選擇器（Multiple Selectors）包含空白或逗號
+https://pjchender.blogspot.com/2015/03/cssmultiple-selectorsspace.html
+
+CSS border-style 邊框樣式
+https://www.wibibi.com/info.php?tid=89
+
+CSS滑鼠移上去的圖案
+CSS cursor Property
+https://www.w3schools.com/cssref/pr_class_cursor.asp
+
+What is the mouse down selector in CSS?
+https://stackoverflow.com/questions/16715274/what-is-the-mouse-down-selector-in-css
+*/
+
 .no {
 	/* 標記編號的CSS */
 	width: 30px;
@@ -5,5 +29,60 @@
 
 input[readonly="readonly"] {
 	/* 唯讀區域上灰色 */
-	background-color: #dddddd;
+	background-color: #b6b6b6;
+}
+
+table {
+	margin: auto;
+	padding: 20px;
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 1px solid rgba(134, 235, 248, 0.158);
+}
+
+tr {
+	border: 1px solid #ccfd93;
+}
+
+td {
+	border: 1px solid #d2faa4cb;
+	padding: 10px 30px;
+	background-color: orange;
+	color: black;
+}
+
+tr:first-child:hover {
+	/* 當滑鼠移動到上面時，滑鼠游標不變 */
+	cursor: default;
+}
+
+tr:first-child:active {
+	/* 當滑鼠移動到上面時，滑鼠游標不變 */
+	cursor: default;
+}
+
+tr:hover {
+	/* 當滑鼠移動到上面時，滑鼠游標變[手掌] */
+	cursor: grab;
+}
+
+tr:active {
+	/* 當滑鼠左鍵按住不放時，滑鼠游標變[手掌抓取物品] */
+	cursor: grabbing;
+}
+
+td:first-child {
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+
+td:last-child {
+	border-top-right-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+.wrapper {
+	text-align: center;
+	border-bottom: 3px solid black;
+	background-color: rgba(134, 235, 248, 0.3);
 }
