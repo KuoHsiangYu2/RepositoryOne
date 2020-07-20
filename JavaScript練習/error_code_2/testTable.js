@@ -45,7 +45,6 @@ function cancelDefaultHandler(e) {
 	e.preventDefault();
 	e.stopPropagation();
 	return false;
-<<<<<<< HEAD
 }
 
 function createTableRow(){
@@ -72,7 +71,6 @@ function dropHandler(e) {
 
 	// console.log("typeof (idData)");
 	// console.log(typeof (idData));
-=======
 }
 
 function renameTdNo() {
@@ -85,7 +83,6 @@ function renameTdNo() {
 		n = n + 1;
 	}
 }
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 
 function createTableRow(idData, textData) {
 	var newTrObj = document.createElement("tr");
@@ -95,11 +92,8 @@ function createTableRow(idData, textData) {
 	var td1Obj = document.createElement("td");
 	td1Obj.setAttribute("align", "center");
 	td1Obj.setAttribute("class", "no");
-<<<<<<< HEAD
 	// console.log("e");
 	// console.log(e);
-=======
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 	td1Obj.appendChild(document.createTextNode(idData));
 	newTrObj.appendChild(td1Obj);
 
@@ -112,20 +106,6 @@ function createTableRow(idData, textData) {
 	inputObj.setAttribute("value", textData);
 	inputObj.setAttribute("maxlength", 30);
 	inputObj.setAttribute("size", 30);
-<<<<<<< HEAD
-=======
-	if (Number.parseInt(idData) === 1) {
-		// 第一列禁止修改編輯
-		inputObj.setAttribute("readonly", "readonly");
-		// 第一列禁止拖移
-		newTrObj.setAttribute("draggable", "false");
-	} else if (Number.parseInt(idData) === 2) {
-		// 第二列自動聚焦
-		inputObj.setAttribute("autofocus", "autofocus");
-	} else {
-		// do nothing
-	}
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 	td2Obj.appendChild(inputObj);
 	newTrObj.appendChild(td2Obj);
 
@@ -143,33 +123,6 @@ function createTableRow(idData, textData) {
 	newTrObj.addEventListener("dragover", cancelDefaultHandler);
 	newTrObj.addEventListener("drop", dropHandler);
 
-<<<<<<< HEAD
-=======
-	return newTrObj;
-}
-
-function dropHandler(e) {
-	// 放開滑鼠左鍵，把拖移物件放下狀態
-	console.log("dropHandler");
-	// 取消預設動作
-	// e.preventDefault();
-	// e.stopPropagation();
-
-	// 取出拖放資料
-	var dataObj = e.dataTransfer.getData("text");// 欄位資料
-	dataObj = JSON.parse(dataObj);
-	var textData = dataObj.text;// 欄位資料
-	var idData = dataObj.id;// 欄位編號
-
-	console.log("textData");
-	console.log(textData);
-	console.log("idData");
-	console.log(idData);
-
-	// console.log("typeof (idData)");
-	// console.log(typeof (idData));
-
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 	// console.log("e.currentTarget");
 	// console.log(e.currentTarget);
 
@@ -196,11 +149,6 @@ function dropHandler(e) {
 		oldNo = oldNo - 1;
 		showDataObj.deleteRow(oldNo);// 刪除舊列
 
-<<<<<<< HEAD
-=======
-		var newTrObj = createTableRow(idData, textData);
-
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 		e.currentTarget.insertAdjacentElement("afterend", newTrObj);// 新增新列
 	}
 
@@ -211,7 +159,6 @@ function dragStartHandler(e) {
 	// 當目標物被滑鼠左鍵點住拖移時
 	// 儲存要拖放的資料
 	console.log("dragStartHandler");
-<<<<<<< HEAD
 
 	console.log("e");
 	console.log(e);
@@ -219,15 +166,6 @@ function dragStartHandler(e) {
 	console.log("e.dataTransfer");
 	console.log(e.dataTransfer);
 
-=======
-
-	console.log("e");
-	console.log(e);
-
-	console.log("e.dataTransfer");
-	console.log(e.dataTransfer);
-
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 	var text = e.target.childNodes[1].childNodes[0].value;// 文字內容
 	var id = e.target.childNodes[0].childNodes[0].nodeValue// id編號
 
@@ -243,7 +181,6 @@ function initialTable() {
 	// 初始化整個分類清單
 	var length = editList.length;
 	for (countRow = 0; countRow < length; countRow++) {
-<<<<<<< HEAD
 		var newTrObj = document.createElement("tr");
 		newTrObj.setAttribute("draggable", "true");
 
@@ -292,10 +229,6 @@ function initialTable() {
 		newTrObj.addEventListener("dragover", cancelDefaultHandler);
 		newTrObj.addEventListener("drop", dropHandler);
 
-=======
-		var newTrObj = createTableRow(String(countRow + 1), editList[countRow]);
-
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 		showDataObj.appendChild(newTrObj);
 		// 從for迴圈出來後 countRow === length ，所以外面不需要再做 countRow++; 的動作。
 	}
@@ -317,7 +250,6 @@ for (var i = 0, len = result.length; i < len; i++) {
 // 開始執行繪製表格的動作
 initialTable();
 
-<<<<<<< HEAD
 function renameTdNo() {
 	var tdNoArray = document.getElementsByClassName("no");
 	var length = tdNoArray.length;
@@ -329,8 +261,6 @@ function renameTdNo() {
 	}
 }
 
-=======
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 // 刪除一列
 function deleteRow(buttonObj) {
 	var isDelete = confirm("確定要刪除嗎？");
@@ -363,7 +293,6 @@ function deleteRow(buttonObj) {
 addRowObj.addEventListener("click", function () {
 	var lastTrObj = document.querySelector("#showData tr:last-child");
 
-<<<<<<< HEAD
 	var newTrObj = document.createElement("tr");
 	newTrObj.setAttribute("draggable", "true");
 
@@ -395,9 +324,6 @@ addRowObj.addEventListener("click", function () {
 	buttonObj.innerText = "刪除";
 	td3Obj.appendChild(buttonObj);
 	newTrObj.appendChild(td3Obj);
-=======
-	var newTrObj = createTableRow(String(countRow), "");
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 
 	newTrObj.addEventListener("dragstart", dragStartHandler);
 	newTrObj.addEventListener("dragenter", cancelDefaultHandler);

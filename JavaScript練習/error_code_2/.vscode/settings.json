@@ -1,9 +1,4 @@
 {
-<<<<<<< HEAD
 	"editor.fontSize": 16,
 	"previewServer.port": 8181
-=======
-    "editor.fontSize": 18,
-    "previewServer.port": 8181
->>>>>>> 699bb55af7d53e02baafef1c3080f97c6faa0326
 }
