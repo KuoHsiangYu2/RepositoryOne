@@ -59,7 +59,7 @@ public class TestHomework0508_1 {
         for (int i = 0; i < studentListLength - 1; i++) {
             flag = false;
             for (int j = 0; j < studentListLength - i - 1; j++) {
-                if (studentList[j].getScore() > studentList[j + 1].getScore()) {
+                if (studentList[j].getScore() < studentList[j + 1].getScore()) {
                     flag = true;
                     Student temp = studentList[j];
                     studentList[j] = studentList[j + 1];

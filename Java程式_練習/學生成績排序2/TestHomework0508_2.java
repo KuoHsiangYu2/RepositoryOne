@@ -60,7 +60,7 @@ public class TestHomework0508_2 {
         studentList.sort(new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-                return (o1.getScore() - o2.getScore());
+                return -(o1.getScore() - o2.getScore());
             }
         });
 
