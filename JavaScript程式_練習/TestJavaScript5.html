@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TestJavaScript5</title>
 </head>
 
 <body>
     <h1>
-        <div id="browserClass"></div>
+        <span id="browserClass"></span>
     </h1>
     <p>TestJavaScript5</p>
     <p>window.setTimeout()</p>
@@ -27,8 +28,8 @@
         }
 
         function supportsLiterals() {
-            // 這個函數用來檢查瀏覽器是否支援 Template literals
-            // IE瀏覽器 絕對不支援 Template literals
+            /* 這個函數用來檢查瀏覽器是否支援 Template literals */
+            /* IE瀏覽器 絕對不支援 Template literals */
             try {
                 return eval("'' === ``");
             } catch (e) {
@@ -38,47 +39,63 @@
 
         function detectBrowser() {
             let browserStr = "";
+            let userAgentStr = window.navigator.userAgent.toLowerCase();
 
-            let Firefox = window.navigator.userAgent.match("Firefox"); //判斷是否為 FireFox
-            let MSIE = window.navigator.userAgent.match("MSIE"); //判斷是否為 IE
-            let Opera = window.navigator.userAgent.match("Opera"); //判斷是否為 Opera
-            let Safari = window.navigator.userAgent.match("Safari"); //判斷是否為 Safari 或 Google Chrome
+            let Firefox = userAgentStr.match("firefox"); /* 判斷是否為 FireFox */
 
-            console.log("$0 typeof Firefox : " + typeof (Firefox));
-            console.log("$0 Firefox : " + Firefox);
-            console.log("$0 typeof MSIE : " + typeof (MSIE));
-            console.log("$0 MSIE : " + MSIE);
-            console.log("$0 typeof Opera : " + typeof (Opera));
-            console.log("$0 Opera : " + Opera);
-            console.log("$0 typeof Safari : " + typeof (Safari));
-            console.log("$0 Safari : " + Safari);
+            let MSIE = userAgentStr.match("msie") ||
+                userAgentStr.match("wow64") ||
+                userAgentStr.match("trident") ||
+                userAgentStr.match(".net"); /* 判斷是否為 IE */
+
+            let Opera = userAgentStr.match("opera") ||
+                userAgentStr.match("opr"); /* 判斷是否為 Opera */
+
+            let Safari = userAgentStr.match("safari"); /* 判斷是否為 Safari 或 Google Chrome */
+
+            let MSEdge = userAgentStr.match("edg"); /* 判斷是否為 Edge */
+
+            console.log("$0 typeof Firefox : ", typeof (Firefox));
+            console.log("$0 Firefox : ", Firefox);
+            console.log("$0 typeof MSIE : ", typeof (MSIE));
+            console.log("$0 MSIE : ", MSIE);
+            console.log("$0 typeof Opera : ", typeof (Opera));
+            console.log("$0 Opera : ", Opera);
+            console.log("$0 typeof Safari : ", typeof (Safari));
+            console.log("$0 Safari : ", Safari);
+            console.log("$0 MSEdge : ", typeof (MSEdge));
+            console.log("$0 MSEdge : ", MSEdge);
 
             if (false === supportsLiterals()) {
-                MSIE = new Object();
+                MSIE = ["MSIE"];
+            } else {
+                MSIE = null;
             }
 
-            if (Firefox) {
+            if (MSEdge) {
+                console.log("#0 Edge");
+                console.log("typeof Edge : ", typeof (MSEdge));
+                console.log("MSEdge : ", MSEdge);
+                browserStr = "Microsoft Edge 瀏覽器";
+            } else if (Firefox) {
                 console.log("#1 Firefox");
-                console.log("typeof Firefox : " + typeof (Firefox));
-                console.log("Firefox : " + Firefox);
+                console.log("typeof Firefox : ", typeof (Firefox));
+                console.log("Firefox : ", Firefox);
                 browserStr = "Mozilla Firefox 瀏覽器";
             } else if (MSIE) {
-                /* TODO: didn't work */
                 console.log("#2 MSIE");
-                console.log("typeof MSIE : " + typeof (MSIE));
-                console.log("MSIE : " + MSIE);
+                console.log("typeof MSIE : ", typeof (MSIE));
+                console.log("MSIE : ", MSIE);
                 browserStr = "Internet Explorer 瀏覽器";
             } else if (Opera) {
-                /* TODO: didn't work */
                 console.log("#3 Opera");
-                console.log("typeof Opera : " + typeof (Opera));
-                console.log("Opera : " + Opera);
+                console.log("typeof Opera : ", typeof (Opera));
+                console.log("Opera : ", Opera);
                 browserStr = "Opera 瀏覽器";
             } else if (Safari) {
-                /* TODO: [Safari, Microsoft Edge, Opera] will also enter this conditional judgment. */
                 console.log("#4 Safari/Google Chrome/Microsoft Edge/Opera");
-                console.log("typeof Safari : " + typeof (Safari));
-                console.log("Safari : " + Safari);
+                console.log("typeof Safari : ", typeof (Safari));
+                console.log("Safari : ", Safari);
                 browserStr = "Google Chrome 瀏覽器";
             } else {
                 console.log("#else didn't find browser type.");
@@ -94,6 +111,7 @@
 </body>
 
 </html>
+
 <!--
 參考資料：
 

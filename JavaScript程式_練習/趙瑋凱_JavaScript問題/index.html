@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>rsmn小遊戲</title>
+</head>
+
+<body>
+    <h1>終極密碼</h1>
+    <br />
+    <div>
+        請輸入一個 1 至 300 之間 的 正整數：<input type="number" max="300" min="1" step="1" id="number" />
+        &nbsp;&nbsp;
+        <input type="button" onclick="gamestart()" value="輸入" />
+    </div>
+    <br />
+    <br />
+    <span id="word"></span>
+
+    <script type="text/javascript">
+        let targetNumber = 0;
+        function getRandom(min, max) {
+            targetNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+            targetNumber = Number(targetNumber);
+        }
+        getRandom(1, 300);
+
+        function gamestart() {
+            let wordObj = document.getElementById("word");
+            let inputNumber = document.getElementById("number").value;
+            if (inputNumber === "") {
+                wordObj.innerHTML = "輸入有誤！ 數值為空，請輸入數字";
+                return;
+            }
+
+            inputNumber = Number(inputNumber);/* 要有變數接回傳值，才能得到數字型別資料。 */
+            if (targetNumber === inputNumber) {
+                wordObj.innerHTML = "恭喜你猜對了";
+            } else if (inputNumber < targetNumber) {
+                wordObj.innerHTML = "比正確數字小";
+            } else if (inputNumber > targetNumber) {
+                wordObj.innerHTML = "比正確數字大";
+            }
+            console.log("targetNumber = ", targetNumber);
+        }
+    </script>
+</body>
+
+</html>
