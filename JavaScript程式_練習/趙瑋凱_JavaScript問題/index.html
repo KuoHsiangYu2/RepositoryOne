@@ -27,13 +27,13 @@
 
         function gamestart() {
             let wordObj = document.getElementById("word");
-            let inputNumber = document.getElementById("number").value;
-            if (inputNumber === "") {
+            let inputNumberStr = document.getElementById("number").value;
+            if (inputNumberStr === "") {
                 wordObj.innerHTML = "輸入有誤！ 數值為空，請輸入數字";
                 return;
             }
 
-            inputNumber = Number(inputNumber);/* 要有變數接回傳值，才能得到數字型別資料。 */
+            let inputNumber = Number(inputNumberStr);/* 要有變數接回傳值，才能得到數字型別資料。 */
             if (targetNumber === inputNumber) {
                 wordObj.innerHTML = "恭喜你猜對了";
             } else if (inputNumber < targetNumber) {
