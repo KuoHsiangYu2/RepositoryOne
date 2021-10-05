@@ -24,7 +24,7 @@ public class MaskName {
         } else {
             /* 2. 若顧客姓名為三個字則隱碼第二個字 */
             /* 3. 若顧客姓名為四個字則隱碼第二、第三個字 */
-            /* 4. 若為四個字以上則依率隱碼中間的所有的字 */
+            /* 4. 若為四個字以上則一律隱碼中間的所有的字 */
             int startIndex = 1;
             int endIndex = nameLength - 1;
             for (int i = startIndex; i < endIndex; i++) {
