@@ -6,6 +6,7 @@ https://www.facebook.com/groups/108375436301355/posts/1264182490720638/
 package com.test;
 
 import static com.util.Output.print;
+import static com.util.Output.printf;
 import static com.util.Output.println;
 
 import java.util.Scanner;
@@ -46,11 +47,8 @@ public class ExponentialSum {
 
         /* 字串切割，把後面額外的 +號 移除掉 */
         String result = sb1.substring(0, sb1.length() - 3);
-        StringBuffer sb2 = new StringBuffer(result);
-        sb2.append(" = ");
-        sb2.append(answerNum);
 
-        println(sb2.toString());
+        printf("%s = %d%n", result, answerNum);
 
         if (scanner != null) {
             scanner.close();
@@ -61,9 +59,6 @@ public class ExponentialSum {
 }
 
 /*
-2的指數和計算程式
-=====================
-請輸入最終值(>=1)：7
-結果為
-2 + 4 + 8 + 16 + 32 + 64 + 128 = 254
-*/
+ * 2的指數和計算程式 ===================== 請輸入最終值(>=1)：7 結果為 2 + 4 + 8 + 16 + 32 + 64 +
+ * 128 = 254
+ */
