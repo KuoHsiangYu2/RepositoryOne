@@ -43,26 +43,26 @@ public class GroupingBy1 {
         // out.println(itemsCount);
 
         // 以 items 出現次數為key值的map.
-        Map<Integer, List<String>> groupingByCount = new HashMap<Integer, List<String>>();
+        Map<Integer, List<String>> resultMap = new HashMap<Integer, List<String>>();
 
         for (Map.Entry<String, Integer> element : itemsCount.entrySet()) {
-            String itemsCountKey = element.getKey();
-            int itemsCountValue = element.getValue();
+            String icKey = element.getKey();
+            int icValue = element.getValue();
 
-            if (groupingByCount.containsKey(itemsCountValue)) {
+            if (resultMap.containsKey(icValue)) {
                 // 如果是第n次設入相同出現次數key值，就以原本的 List 為基底，繼續把 items往後加入。.
-                List<String> groupingByValue = groupingByCount.get(itemsCountValue);
-                groupingByValue.add(itemsCountKey);
-                groupingByCount.put(itemsCountValue, groupingByValue);
+                List<String> groupingByValue = resultMap.get(icValue);
+                groupingByValue.add(icKey);
+                resultMap.put(icValue, groupingByValue);
             } else {
                 // 如果是第一次設入出現次數為key值，就建立全新的 ArrayList 並把 items設定進去。.
                 List<String> newArrayList = new ArrayList<String>();
-                newArrayList.add(itemsCountKey);
-                groupingByCount.put(itemsCountValue, newArrayList);
+                newArrayList.add(icKey);
+                resultMap.put(icValue, newArrayList);
             }
         }
 
-        out.println(groupingByCount);
+        out.println(resultMap);
     }
 
 }
