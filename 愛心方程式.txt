@@ -1,4 +1,0 @@
-﻿愛心方程式
-http://www.mathsisfun.byethost6.com/k02/k02139/k02139.htm?i=2
-
-17×x^2 - 22×|x|×y + 17×y^2 = 225
