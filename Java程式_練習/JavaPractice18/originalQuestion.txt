@@ -1,0 +1,57 @@
+﻿https://www.facebook.com/groups/108375436301355/posts/1731727457299470/
+
+匿名參與者
+
+請問有沒有方法可以把我下面的程式精簡，也就是說能不能透過某些方式(maybe迴圈)來呼叫較同一個class中的不同object，還請各位先進幫幫忙
+switch (splitInput[1]) {
+case "1":
+　if(horse1.whetherExist==true){
+　　System.out.println("<系統提示> 該道已有賽馬，無法新增");
+　}
+　else{
+　　horse1.whetherExist=true;
+　　horse1.setName(splitInput[3]);
+　　horse1.setMaxSpeed(Integer.parseInt(splitInput[4]));
+　　horse1.setAcceleration(Integer.parseInt(splitInput[5]));
+　　System.out.println("<系統提示> 已新增賽馬");
+　}
+　break;
+case "2":
+　if(horse2.whetherExist==true){
+　　System.out.println("<系統提示> 該道已有賽馬，無法新增");
+　}
+　else{
+　　horse2.whetherExist=true;
+　　horse2.setName(splitInput[3]);
+　　horse2.setMaxSpeed(Integer.parseInt(splitInput[4]));
+　　horse2.setAcceleration(Integer.parseInt(splitInput[5]));
+　　System.out.println("<系統提示> 已新增賽馬");
+　}
+　break;
+case "3":
+　if(horse3.whetherExist==true){
+　　System.out.println("<系統提示> 該道已有賽馬，無法新增");
+　}
+　else{
+　　horse3.whetherExist=true;
+　　horse3.setName(splitInput[3]);
+　　horse3.setMaxSpeed(Integer.parseInt(splitInput[4]));
+　　horse3.setAcceleration(Integer.parseInt(splitInput[5]));
+　　System.out.println("<系統提示> 已新增賽馬");
+　}
+　break;
+case "4":
+　if(horse4.whetherExist==true){
+　　System.out.println("<系統提示> 該道已有賽馬，無法新增");
+　}
+　else{
+　　horse4.whetherExist=true;
+　　horse4.setName(splitInput[3]);
+　　horse4.setMaxSpeed(Integer.parseInt(splitInput[4]));
+　　horse4.setAcceleration(Integer.parseInt(splitInput[5]));
+　　System.out.println("<系統提示> 已新增賽馬");
+　}
+default:
+　System.out.println("<系統提示> 賽道編號不存在，無法新增");
+　break;
+}
