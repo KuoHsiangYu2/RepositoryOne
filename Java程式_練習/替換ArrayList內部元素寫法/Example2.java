@@ -13,7 +13,6 @@ public class Example2 {
     }
 
     public static void main(String[] args) {
-        // 給 林春志 寫的範例.
         // 使用 Stream API 去處理東西。.
         /* banana 替換成 x */
         List<String> testList = new ArrayList<String>();
