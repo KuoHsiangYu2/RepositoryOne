@@ -2,6 +2,7 @@ package com.main;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,7 +17,6 @@ import java.util.List;
 public class AniGamerPlusCommand01 {
 
     private final static String INPUT_FILE = "./inputSN.txt";
-    private final static String OUTPUT_FILE = "./outputData.txt";
 
     private static List<Integer> readListMethod() {
         List<Integer> readList = new ArrayList<Integer>();
@@ -78,13 +78,13 @@ public class AniGamerPlusCommand01 {
         return readList;
     }
 
-    private static void writeOutputFile(String resultString) {
+    private static void writeOutputFile(String resultString, String outputFile) {
         FileOutputStream fileOutputStream = null;
         OutputStreamWriter outputStreamWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
             /* flase 表示每次都要全新寫入檔案，會蓋掉原檔案資料 */
-            fileOutputStream = new FileOutputStream(OUTPUT_FILE, false);
+            fileOutputStream = new FileOutputStream(outputFile, false);
 
             /* 設定輸出的檔案編碼格式為 UTF-8 */
             outputStreamWriter = new OutputStreamWriter(fileOutputStream, Charset.forName("UTF-8"));
@@ -147,8 +147,35 @@ public class AniGamerPlusCommand01 {
         sb.delete(startDelNum, endDelNum);
         String resultString = sb.toString();
 
-        AniGamerPlusCommand01.writeOutputFile(resultString);
+        File output01 = new File("./outputData.txt");
+        output01.delete();
+        AniGamerPlusCommand01.writeOutputFile(resultString, "./outputData.txt");
         System.out.println(resultString);
+
+        StringBuilder sb2 = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
+        boolean isFirst = true;
+        for (int i = 0; i < readList.size(); i++) {
+            if (true == isFirst) {
+                sb2.append(readList.get(i));
+                sb2.append(" ");
+                sb2.append("all");
+                isFirst = false;
+            } else {
+                sb2.append(newLine);
+                sb2.append(readList.get(i));
+                sb2.append(" ");
+                sb2.append("all");
+            }
+        }
+        String resultString2 = sb2.toString();
+
+        System.out.println("------------------------------");
+        File output02 = new File("./outputData02.txt");
+        output02.delete();
+        AniGamerPlusCommand01.writeOutputFile(resultString2, "./outputData02.txt");
+        System.out.println(resultString2);
+
         System.out.println("main finish");
     }
 
