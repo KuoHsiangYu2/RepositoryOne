@@ -13,6 +13,8 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AniGamerPlusCommand01 {
 
@@ -32,12 +34,23 @@ public class AniGamerPlusCommand01 {
                 if (inputString.trim().length() != 0) {
                     int findIndex = inputString.indexOf("sn=");
                     if (findIndex > -1) {
+                        String snString = "";
                         // System.out.println("findIndex" + findIndex);
-                        int beginIndex = findIndex + 3;
-                        int endIndex = inputString.length();
-                        inputString = inputString.substring(beginIndex, endIndex);
-                        int snNum = Integer.parseInt(inputString, 10);
-                        // System.out.println("[" + snNum + "]");
+                        // int beginIndex = findIndex + 3;
+                        // int endIndex = inputString.length();
+                        // inputString = inputString.substring(beginIndex, endIndex);
+
+                        // 定義正則表達式模式.
+                        Pattern pattern = Pattern.compile("sn=(\\d+)");
+                        Matcher matcher = pattern.matcher(inputString);
+
+                        // 如果找到匹配項，返回匹配的數字.
+                        if (matcher.find()) {
+                            snString = matcher.group(1);
+                        }
+
+                        int snNum = Integer.parseInt(snString, 10);
+                        System.out.println("[" + snString + "]");
                         readList.add(snNum);
                     }
                 }

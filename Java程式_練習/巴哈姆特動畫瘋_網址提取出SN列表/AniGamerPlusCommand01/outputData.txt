@@ -1,1 +1,1 @@
-play.bat 38887 
+play.bat 38887 && play.bat 38877 
