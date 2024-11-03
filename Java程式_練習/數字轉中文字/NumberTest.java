@@ -14,7 +14,7 @@ https://www.facebook.com/groups/1403852566495675/posts/3790381254509449/
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.test.num1;
+// package com.test.num1;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
