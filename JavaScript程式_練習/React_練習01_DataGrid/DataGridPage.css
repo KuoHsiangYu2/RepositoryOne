@@ -1,0 +1,159 @@
+/* --- Layout --- */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row; */
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f6fa;
+  color: #333;
+  width: 1000px;
+}
+
+.header {
+  background-color: #0078d7;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* --- Controls --- */
+.top-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.top-controls input[type="text"] {
+  width: 46%;
+  padding: 0.5rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.select-container label {
+  margin-right: 0.5rem;
+  color: #555;
+}
+
+.select-container select {
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+/* --- Table --- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.data-table th:hover {
+  background-color: #e2e2e2;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.data-table tr:hover {
+  background-color: #eef7ff;
+}
+
+.price {
+  text-align: right;
+}
+
+.no-data {
+  text-align: center;
+  color: #888;
+  padding: 1rem;
+}
+
+/* --- Sort Icon --- */
+.sort-icon {
+  font-size: 0.8rem;
+  margin-left: 6px;
+  color: #bbb;
+  display: inline-block;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* 正向排序 */
+.sort-icon.asc {
+  color: #0078d7;
+  /* transform: rotate(0deg); */
+}
+
+/* 逆向排序 */
+.sort-icon.desc {
+  color: #d70000;
+  /* transform: rotate(180deg); */
+}
+
+/* --- Pagination --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0.8rem;
+}
+
+.pagination button {
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #0078d7;
+  color: white;
+}
+
+.pagination button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+}
